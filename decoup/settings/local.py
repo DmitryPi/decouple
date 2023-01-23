@@ -7,3 +7,8 @@ SECRET_KEY = env(
     default="cZwrG7UEpaTy7XXYlNwfKgrBxgXTUP6BS9zCSSfk4LiX6IL7cwdHZNkAQdoq2JMm",
 )
 ALLOWED_HOSTS = ["localhost", "0.0.0.0", "127.0.0.1"]
+
+# django-extensions
+# ------------------------------------------------------------------------------
+# https://django-extensions.readthedocs.io/en/latest/installation_instructions.html#configuration
+INSTALLED_APPS += ["django_extensions"]  # noqa F405
