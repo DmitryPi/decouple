@@ -94,6 +94,96 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Nunito:wght@300;400&display=swap");
 
+h2 {
+  /*font-family: "Balsamiq Sans", cursive;*/
+  font-size: 2em;
+  margin-bottom: 2em;
+}
+
+.container {
+  font-family: "Nunito", sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.form__field {
+  margin-bottom: 2em;
+}
+
+.form__field label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+.form__field input,
+select {
+  height: 30px;
+  margin-bottom: 1em;
+  margin-right: 1em;
+}
+
+.form__field select {
+  font-size: 0.6em;
+}
+
+.form__field input[type="date"] {
+  font-size: 0.6em;
+}
+
+
+
+#quantity {
+  width: 30px;
+}
+
+
+.form__aside {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__main {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  flex: 1 0 0;
+}
+
+@media screen and (min-width: 960px) {
+  .form__main {
+    flex-wrap: nowrap;
+  }
+
+  #description {
+    min-width: 400px;
+  }
+}
+
+.form__buttons {
+  float: right;
+}
+
+.form__buttons button {
+  border: 2px solid #222;
+  box-shadow: 5px 5px 0 #222;
+  font: inherit;
+  font-size: 16px;
+  background-color: transparent;
+  width: 150px;
+  height: 40px;
+  margin-right: 0.9em;
+  padding: 2px;
+}
 </style>
