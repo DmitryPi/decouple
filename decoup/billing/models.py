@@ -8,7 +8,9 @@ class Invoice(models.Model):
         UNPAID = "UNPAID"
         CANCELLED = "CANCELLED"
 
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.PROTECT)
+    user = models.ForeignKey(
+        settings.AUTH_USER_MODEL, on_delete=models.PROTECT, related_name="items"
+    )
     date = models.DateTimeField()
     due_date = models.DateTimeField()
     state = models.CharField(max_length=15, choices=State.choices, default=State.UNPAID)
