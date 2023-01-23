@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     # local apps
     "decoup.users",
     "decoup.billing",
+    "decoup.blog",
 ]
 
 MIDDLEWARE = [
