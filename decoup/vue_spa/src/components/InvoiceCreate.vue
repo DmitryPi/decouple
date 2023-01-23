@@ -56,44 +56,50 @@ export default {
     return {
       users: [
         { id: 1, name: "xadrg", email: "xadrg@acme.io" },
-        { id: 2, name: "olcmf", email: "olcmf@zyx.dev" },
+        { id: 2, name: "olcmf", email: "olcmf@zyx.dev" }
       ]
     };
   },
   methods: {
     handleSubmit: function (event) {
-      // eslint-disable-next-line no-unused-vars
       const formData = new FormData(event.target);
-
-      // TODO - build request body
-      const data = {};
-
-      fetch("/billing/api/incoices/", {
+      const data = Object.fromEntries(formData);
+      data.items = [
+        {
+          quantity: formData.get("quantity"),
+          description: formData.get("description"),
+          price: formData.get("price"),
+          taxed: Boolean(formData.get("taxed"))
+        }
+      ];
+      fetch("/billing/api/invoices/", {
         method: "POST",
-        headers: { "Content-type": "application/json" },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data)
-      }).then(response => {
-        if (!response.ok) throw Error(response.statusText);
-        return response.json()
-      }).then(json => {
-        console.log(json);
-      }).catch(err => {
-        console.log(err);
       })
-    },
+        .then(response => {
+          if (!response.ok) throw Error(response.statusText);
+          return response.json();
+        })
+        .then(json => {
+          console.log(json);
+        })
+        .catch(err => console.log(err));
+    }
   },
   mounted() {
-    fetch("/billing/api/clients/").then(response => {
-      if (!response.ok) throw Error(response.statusText);
-      return response.json();
-    }).then(json => {
-      this.users = json;
-    });
+    fetch("/billing/api/clients/")
+      .then(response => {
+        if (!response.ok) throw Error(response.statusText);
+        return response.json();
+      })
+      .then(json => {
+        this.users = json;
+      });
   }
-}
+};
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 @import url("https://fonts.googleapis.com/css2?family=Balsamiq+Sans:wght@700&family=Nunito:wght@300;400&display=swap");
 
