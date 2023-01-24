@@ -1,6 +1,8 @@
-import Vue from 'vue'
-import App from './App.vue'
+import Vue from 'vue';
+import VueCookies from 'vue-cookies';
+import App from './App.vue';
 
+Vue.use(VueCookies);
 Vue.config.productionTip = false
 
 new Vue({
