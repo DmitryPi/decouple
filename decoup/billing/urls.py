@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .api.viewsets import ClientList, InvoiceCreate
+from .api.view import ClientList, InvoiceCreate
 from .views import Index
 
 app_name = "billing"
